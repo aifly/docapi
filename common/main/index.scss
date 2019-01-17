@@ -1,0 +1,21 @@
+﻿@import "../css/base.scss";
+$color:rgb(55, 61, 65);
+$primary-color: #00c1de;
+.zmiti-docapi-main-ui{
+	.zmiti-docapi-title{
+		height: 130px;
+		width: 100%;
+		overflow: hidden;
+		@include pos(r);
+		&:before{
+			content:'';
+			width: 100%;
+			@include pos(a);
+			bottom: 0;
+			height: 30px;
+			background-image:-webkit-linear-gradient(top, #d1cdcd, #dfdfdf);
+			background-image:linear-gradient(top, #d1cdcd, #dfdfdf);
+			left: 0;;
+		}
+	}
+}
