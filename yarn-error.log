@@ -1,33 +1,34 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js star
+  F:\Program Files\nodejs\node.exe C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add highlight.js --save
 
 PATH: 
-  C:\Users\13910\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\13910\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP;C:\Program Files\nodejs;F:\xuchang2018\tools\Microsoft VS Code\bin;C:\WINDOWS\System32\OpenSSH;C:\Users\13910\AppData\Local\Programs\Python\Python36\Scripts;C:\Users\13910\AppData\Local\Programs\Python\Python36;C:\Ruby25-x64\bin;C:\Users\13910\AppData\Local\Microsoft\WindowsApps;C:\Users\13910\AppData\Roaming\npm;F:\install\Microsoft VS Code\bin;F:\mysql\MySQL Server 5.5\bin;F:\xuchang2018\tools\Microsoft VS Code\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+  C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;F:\xuchang2018\tools\Microsoft VS Code\bin;C:\WINDOWS\System32\OpenSSH\;F:\Program Files\nodejs\;C:\Ruby25-x64\bin;C:\Users\13910\AppData\Local\Microsoft\WindowsApps;F:\install\Microsoft VS Code\bin;F:\mysql\MySQL Server 5.5\bin;F:\xuchang2018\tools\Microsoft VS Code\bin;F:\Anaconda3;F:\Anaconda3\Scripts;F:\Program Files\nodejs;C:\Users\13910\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
 
 Node version: 
-  8.11.3
+  9.0.0
 
 Platform: 
   win32 x64
 
 npm manifest: 
   {
-    "name": "xwords",
+    "name": "hotwords2019",
     "version": "1.0.0",
+    "description": "",
     "main": "index.js",
-    "repository": "https://github.com/aifly/xwords.git",
-    "author": "fly",
-    "license": "MIT",
     "scripts": {
-      "start": "webpack-dev-server --hot --inline --port 4047",
-      "build": "webpack -w --config webpack.build.config.js"
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "webpack-dev-server --hot --inline --port 8001  --mode development",
+      "build": "webpack -w --mode production --config webpack.config.build.js"
     },
+    "author": "",
+    "license": "ISC",
     "dependencies": {
+      "@babel/preset-env": "^7.3.1",
       "babel-helper-vue-jsx-merge-props": "^2.0.3",
-      "babel-loader": "^6.1.0",
       "babel-plugin-import": "^1.1.0",
       "babel-plugin-transform-object-assign": "^6.8.0",
       "babel-plugin-transform-runtime": "^6.1.2",
@@ -36,39 +37,48 @@ npm manifest:
       "babel-preset-es2015": "^6.1.2",
       "babel-preset-stage-0": "^6.1.2",
       "babel-runtime": "^5.8.0",
+      "codemirror": "^5.45.0",
       "css-loader": "^0.23.1",
+      "echarts": "^4.1.0",
       "extract-text-webpack-plugin": "^3.0.2",
       "file-loader": "^0.8.5",
       "html-loader": "^0.5.4",
-      "html-webpack-plugin": "^2.30.1",
       "iscroll": "^5.2.0",
-      "iview": "^3.0.0",
+      "iview": "^3.3.3",
       "iview-loader": "^1.2.2",
-      "jquery": "^2.2.3",
+      "iview-theme": "^1.1.0",
+      "jquery": "^3.3.1",
       "less": "^2.5.3",
       "less-loader": "^4.1.0",
       "less-plugin-clean-css": "^1.5.1",
       "open-browser-webpack-plugin": "^0.0.5",
       "style-loader": "^0.13.0",
-      "tinymce": "^4.8.2",
-      "url-loader": "^0.5.7",
-      "velocity": "^0.7.2",
-      "velocity-animate": "^1.5.1",
-      "vue": "^2.5.13",
+      "url-loader": "^1.1.2",
       "vue-animated-list": "^1.0.2",
+      "vue-echarts": "^4.0.1",
       "vue-hot-reload-api": "^2.2.4",
       "vue-html-loader": "^1.2.4",
-      "vue-loader": "^7.3.0",
-      "vue-quill-editor": "^3.0.6",
+      "vue-js-tap": "^1.2.3",
       "vue-router": "^3.0.1",
       "vue-style-loader": "^3.0.1",
-      "vue-template-compiler": "^2.5.2",
-      "webpack": "^1.15.0",
-      "webpack-dev-server": "^1.16.5"
+      "vue-touch": "^1.1.0"
     },
     "devDependencies": {
-      "babel-core": "^5.8.38",
-      "babel-preset-es2015": "^6.24.1"
+      "@babel/core": "^7.3.3",
+      "@babel/plugin-proposal-class-properties": "^7.3.3",
+      "@babel/plugin-transform-runtime": "^7.2.0",
+      "@babel/runtime": "^7.3.1",
+      "babel-core": "^6.26.3",
+      "babel-loader": "^7.1.5",
+      "babel-preset-env": "^1.7.0",
+      "extend-shallow": "^3.0.2",
+      "html-webpack-plugin": "^2.30.1",
+      "vue": "^2.6.6",
+      "vue-loader": "^14.2.2",
+      "vue-template-compiler": "^2.6.6",
+      "webpack": "^4.29.6",
+      "webpack-cli": "^3.3.0",
+      "webpack-dev-server": "^3.1.14"
     }
   }
 
@@ -2543,9 +2553,9 @@ Lockfile:
     version "0.1.2"
     resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   
-  iview-loader@^1.1.0:
-    version "1.1.0"
-    resolved "https://registry.yarnpkg.com/iview-loader/-/iview-loader-1.1.0.tgz#53ee6e827193d8d9b20f761e6cbbea5d9f9a7802"
+  iview-loader@^1.2.2:
+    version "1.2.2"
+    resolved "https://registry.yarnpkg.com/iview-loader/-/iview-loader-1.2.2.tgz#abdf52074de93c82ef01a2c293deb82c8cbbbde0"
     dependencies:
       loader-utils "^1.1.0"
   
@@ -4762,14 +4772,4 @@ Lockfile:
       y18n "^3.2.0"
 
 Trace: 
-  Error: Command "star" not found. Did you mean "start"?
-      at new MessageError (C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
-      at Generator.next (<anonymous>)
-      at step (C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
-      at C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
-      at new Promise (<anonymous>)
-      at new F (C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
-      at C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
-      at runCommand (C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87312:22)
-      at Object.<anonymous> (C:\Users\13910\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87412:14)
+  Error: EPERM: operation not permitted, mkdir 'F:\xuchang2019\project\docapi\node_modules\postcss-modules-extract-imports\node_modules\chalk\node_modules'

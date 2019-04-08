@@ -3,7 +3,13 @@ $color:rgb(55, 61, 65);
 $primary-color: #00c1de;
 .zmiti-docapi-main-ui{
 	.zmiti-docapi-title{
+		&>h1{
+			font-size:40px;
+			text-indent: 2em;	
+		}
 		height: 130px;
+		line-height: 110px;
+
 		width: 100%;
 		overflow: hidden;
 		@include pos(r);

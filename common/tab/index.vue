@@ -1,13 +1,13 @@
 <template>
-    <div class="zmiti-tab-ui">
-        <ul :style="{height:viewH - 130+'px'}" class="zmiti-tab-list" >
+    <div class="zmiti-tab-ui" ref='page' :style='{height:viewH-133+"px",overflow:"hidden"}'>
+        <ul  class="zmiti-tab-list" >
 			<li>{{title}}</li>
             <li @click.prevent='toggleMenu(menu)'  v-for="(menu ,i ) in tabMenus " :key="i" :class="{'close':menu.close ,'active':menu.to ===$route.name && !menu.children,'zmiti-main-menu':menu.children && menu.children.length }">
 				<!-- <router-link :to="menu.to"> {{menu.name}}</router-link> -->
 				<div>{{menu.title}}</div>
 				<ol :style="{height:menu.close ? 0:menu.children.length*36+'px'}" class='zmiti-tab-sub-menu' v-if='menu.children && menu.children.length'>
-					<li @click.stop='refresh' v-for='(m,k) in menu.children' :key='k' :class="{'active':m.to ===$route.name}">
-						<div > {{m.title}}</div>
+					<li @click.stop='refresh(i*menu.children.length+k)' v-for='(m,k) in menu.children' :key='k' :class="{'active':i*menu.children.length+k === tabIndex}">
+						<div> {{m.title}}</div>
 					</li>
 				</ol>
             </li>
@@ -17,8 +17,9 @@
 <script>
 	import './index.css';
 	import Vue from 'vue';
+	import IScroll from 'iscroll';
     export default {
-		props:['obserable','refresh','menus','title'],
+		props:['obserable','refresh','menus','title','tabIndex'],
 		name:'zmitiindex',
 		data(){
 			return{
@@ -57,12 +58,26 @@
 				type:'getMeetName'
 			});
 			this.tabMenus = this.menus.concat([]);
+
+			this.scroll = new IScroll(this.$refs['page'],{
+				scrollbars:true,
+				preventDefault:false,
+				mouseWheel:true,
+
+			});
+
+			setTimeout(() => {
+				this.scroll.refresh();
+			}, 100);
 		},
 		
 		methods:{
 			toggleMenu(menu){
 				menu.close = !menu.close;
 				this.tabMenus = this.tabMenus.concat([]);
+				setTimeout(() => {
+					this.scroll.refresh();
+				}, 210);
 			}
         }
 	}

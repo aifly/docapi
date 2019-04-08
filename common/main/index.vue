@@ -1,15 +1,14 @@
 <template>
     <div class="zmiti-docapi-main-ui">
         <div class='zmiti-docapi-title'>
-            
+            <h1>智媒体文档</h1>
         </div>
         <div class='zmiti-docapi-content'>
             <Split v-model="split1">
                 <div slot="left" class="zmiti-docapi-left">
-                    <Tab :refresh='refresh' :menus='menus' :title='zmiti2Data.title'></Tab>
+                    <Tab :refresh='refresh' :tabIndex='tabIndex' :menus='menus' :title='zmiti2Data.title'></Tab>
                 </div>
                 <div slot='right' class='zmiti-docapi-right'>
-                    rug
                     <router-view></router-view>
                 </div>
             </Split>
@@ -20,11 +19,10 @@
 <script>
 	import './index.css';
     import Vue from 'vue';
-    import zmiti2Data from '../../common/data/zmiti2.0';
+    import {taskAdminData,taskCompanyData} from '../../common/data/zmiti2.0';
 
     import Tab from '../../common/tab/index'
     
-
 	export default {
 		props:['isAdmin'],
 		name:'zmitiindex',
@@ -36,8 +34,8 @@
                 userinfo:{},
                 productList:[],
                 kw:"",
-                zmiti2Data,
-                menus:zmiti2Data.list,
+                zmiti2Data:taskAdminData,
+                menus:taskAdminData.list,
                 topMenu:[
                 ],
                 defaultMenu:[
@@ -49,7 +47,6 @@
             Tab
 		},
         beforeCreate(){
-            
 
         },
 		mounted(){
@@ -65,7 +62,15 @@
             tab(index){
                 this.tabIndex = index;
             },
-            refresh(){
+            refresh(index){
+
+                this.tabIndex = index;
+                Vue.obserable.trigger({
+                    type:'setPagePos',
+                    data:{
+                        index
+                    }
+                })
 
             }
          

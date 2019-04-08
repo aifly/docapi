@@ -6,7 +6,7 @@ import Home from './components/home/index'
 import iView from 'iview';
 import VueRouter from 'vue-router'
 import './components/css/index.css';
-import 'iview/dist/styles/iview.css';
+import './components/css/theme.less';
 
 Vue.use(VueRouter)
 Vue.use(iView)
@@ -15,7 +15,12 @@ var obserable = new Obserable();
 Vue.obserable = obserable;
 const router = new VueRouter({
   routes: [
-   
+		{
+			path: "/",
+			name: "home",
+			component: Home,
+			props: true
+		},
     {
       path: "/home",
       name: "home",
